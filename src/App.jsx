@@ -1,3 +1,4 @@
+import Form from "./components/Form";
 import HeroSection from "./components/HeroSection";
 import Offers from "./components/Offers";
 import OurCollections from "./components/OurCollections";
@@ -10,6 +11,7 @@ function App() {
       <OurCollections />
       <Offers />
       <Testimonials />
+      <Form/>
     </>
   );
 }

@@ -1,4 +1,3 @@
-import { CircleUserRound } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -103,7 +102,7 @@ export default function Testimonials() {
               <div className="flex flex-col items-center text-center gap-2">
                 <div className="flex justify-center items-center gap-2">
                   <div className="w-fit flex items-center justify-center rounded-lg bg-[rgba(255,255,255,0.02)]">
-                    <CircleUserRound className="rounded-full text-white bg-[#855907]" />
+                    <img className="h-6" src="/icons/user.png" />
                   </div>
                   <div className="text-[10px] text-[#263b2e] modernfont font-semibold">
                     {item.user}
