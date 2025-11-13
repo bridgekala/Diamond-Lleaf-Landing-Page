@@ -1,4 +1,5 @@
 import HeroSection from "./components/HeroSection";
+import Offers from "./components/Offers";
 import OurCollections from "./components/OurCollections";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <HeroSection />
       <OurCollections />
+      <Offers />
     </>
   );
 }

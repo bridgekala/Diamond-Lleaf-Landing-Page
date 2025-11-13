@@ -23,13 +23,13 @@ export default function OurCollections() {
     <div className='h-screen w-screen bg-[url("/bg-yellow.jpg")] bg-no-repeat bg-cover bg-center flex flex-col items-center gap-40 p-4'>
       <div className="text-center">
         <div className="mb-2">
-          <h1 className="text-5xl text-[#263b2e] modernfont">Explore</h1>
-          <h1 className="text-5xl text-[#263b2e] modernfont">
+          <h1 className="text-4xl text-[#263b2e] modernfont">Explore</h1>
+          <h1 className="text-4xl text-[#263b2e] modernfont">
             Our Collections
           </h1>
         </div>
 
-        <p className="text-white text-sm poppinsfont bg-[#263b2e] rounded-3xl py-2">
+        <p className="text-white text-xs w-75 poppinsfont bg-[#263b2e] rounded-3xl py-2">
           For every occasion, for every story There's a{" "}
           <span className="font-bold">Diamond Lleaf</span> creation.
         </p>
