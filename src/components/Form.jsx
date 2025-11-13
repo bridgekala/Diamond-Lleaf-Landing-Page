@@ -9,10 +9,34 @@ export default function Form() {
       </div>
       <div className="flex flex-col justify-center items-center w-full">
         <form action="" className="flex flex-col w-[80%] gap-8">
-          <input className="border rounded-xl border-[#263b2e] p-2 text-[#ffe277] shadow-xl/20" type="text" placeholder="Full Name" />
-          <input className="border rounded-xl border-[#263b2e] p-2 text-[#ffe277] shadow-xl/20" type="Number" placeholder="WhatsApp Number" />
-          <input className="border rounded-xl border-[#263b2e] p-2 text-[#ffe277] shadow-xl/20" type="text" placeholder="City" />
-          <input className="border rounded-xl border-[#263b2e] p-2 text-[#ffe277] shadow-xl/20" type="text" placeholder="Jewellery Type" />
+          <input
+            className="border rounded-3xl bg-[#263b2e00] border-[#263b2e] p-2 text-[#ffe277] shadow-xl/20 poppinsfont glass-card"
+            type="text"
+            placeholder="Full Name"
+          />
+          <input
+            className="border rounded-3xl bg-[#263b2e00] border-[#263b2e] p-2 text-[#ffe277] shadow-xl/20 poppinsfont glass-card"
+            type="Number"
+            placeholder="WhatsApp Number"
+          />
+          <input
+            className="border rounded-3xl bg-[#263b2e00] border-[#263b2e] p-2 text-[#ffe277] shadow-xl/20 poppinsfont glass-card"
+            type="text"
+            placeholder="City"
+          />
+
+          <select
+            name=""
+            id=""
+            className="border rounded-3xl bg-[#263b2e00] border-[#263b2e] p-2 text-[#ffe277] shadow-xl/20 poppinsfont glass-card"
+          >
+            <option>--Jewellry Type--</option>
+            <option value="">Ring</option>
+            <option value="">Pendant</option>
+            <option value="">Earrings </option>
+            <option value="">Bridal</option>
+            <option value="">Custom</option>
+          </select>
         </form>
       </div>
       <div className="w-full flex justify-center">
@@ -24,3 +48,4 @@ export default function Form() {
     </div>
   );
 }
+0;
