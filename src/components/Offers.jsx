@@ -38,7 +38,7 @@ export default function Offers() {
                 <div className="w-20 flex items-center justify-center rounded-lg bg-[rgba(255,255,255,0.02)]">
                   <img className="h-10" src={card.img} alt="" />
                 </div>
-                <div className="text-[16px] text-[#E7CD5A] font-medium tracking-tight">
+                <div className="text-[16px] text-[#ffe277] font-medium tracking-tight">
                   {card.tag}
                 </div>
               </div>
