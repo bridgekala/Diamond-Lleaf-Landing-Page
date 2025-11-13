@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "MyFont";
+  src: url("/fonts/MOD20.TTF") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.modernfont {
+  font-family: "MyFont", sans-serif;
+}
+
+.poppinsfont {
+  font-family: "Poppins", sans-serif;
+}
+
+.spacing{
+letter-spacing: 7px;
+}
+
+/* stripCarousel CSS */
+.strip-bar {
+  background-color: black;
+  color: #f59e0b; 
+  font-weight: bold;
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 6vh;
+  font-size: 0.65rem;
+}
+
+.strip-track {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.scroll-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-loop 20s linear infinite;
+}
+
+@keyframes scroll-loop {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive font & height */
+@media (min-width: 375px) {
+  .strip-bar {
+    font-size: 0.75rem;
+    height: 6.5vh;
+  }
+}
+
+@media (min-width: 640px) {
+  .strip-bar {
+    font-size: 0.85rem;
+    height: 7vh;
+  }
+}
+
+@media (min-width: 768px) {
+  .strip-bar {
+    font-size: 0.95rem;
+    height: 7.5vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .strip-bar {
+    font-size: 1rem;
+    height: 8vh;
+  }
+}
