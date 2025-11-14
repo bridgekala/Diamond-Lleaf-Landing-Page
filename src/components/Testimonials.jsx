@@ -12,7 +12,7 @@ export default function Testimonials() {
       para: "IGI & GIA Certification  on every piece.",
     },
     {
-      img1: "/icons/Free Design Preview_.png",
+      img1: "/icons/Factory-Direct Pricing.png",
       tag: "Factory-Direct Pricing",
       para: "No retail mark-ups.",
     },
