@@ -74,7 +74,7 @@ function Dropdown({ name, placeholder, options, value, onChange, includeHiddenIn
   );
 }
 
-export default function Form() {
+export default function Form({ compact = false, className = "" }) {
   const [jewelleryOption, setJewelleryOption] = useState(null); // stores selected option object
   const [isCustom, setIsCustom] = useState(false);
   const [customText, setCustomText] = useState("");
@@ -105,6 +105,88 @@ export default function Form() {
     setTimeout(() => setMessage(""), 6000);
   };
 
+  // Render a compact inline form when used inside popup, otherwise full-screen layout
+  const formElement = (
+    <form action="" ref={formRef} onSubmit={handleSubmit} className={`flex flex-col w-full ${compact ? "gap-3" : "w-[80%] lg:w-[60%] gap-4 lg:gap-7 xl:gap-10"}`}>
+      <input
+        name="fullName"
+        className="border rounded-3xl bg-[#263b2e00] border-[#263b2e54] p-2 text-[#ffe277] shadow-xl/20 poppinsfont"
+        type="text"
+        placeholder="Full Name"
+      />
+      <input
+        name="whatsapp"
+        className="border rounded-3xl bg-[#263b2e00] border-[#263b2e54] p-2 text-[#ffe277] shadow-xl/20 poppinsfont"
+        type="tel"
+        placeholder="WhatsApp Number"
+      />
+      <input
+        name="city"
+        className="border rounded-3xl bg-[#263b2e00] border-[#263b2e54] p-2 text-[#ffe277] shadow-xl/20 poppinsfont"
+        type="text"
+        placeholder="City"
+      />
+
+      <Dropdown
+        name="jewelleryType"
+        includeHiddenInput={false} /* parent will control submitted value to support custom text */
+        placeholder="--Jewellry Type--"
+        value={jewelleryOption}
+        onChange={(opt) => {
+          setJewelleryOption(opt);
+          if (opt && opt.value === "custom") {
+            setIsCustom(true);
+            setCustomText("");
+          } else {
+            setIsCustom(false);
+            setCustomText("");
+          }
+        }}
+        options={[
+          { value: "ring", label: "Ring" },
+          { value: "pendant", label: "Pendant" },
+          { value: "earrings", label: "Earrings" },
+          { value: "bridal", label: "Bridal" },
+          { value: "custom", label: "Custom" },
+        ]}
+      />
+
+      {/* Hidden input used for form submission. If custom is selected we send the typed value, otherwise the option value */}
+      <input
+        type="hidden"
+        name="jewelleryType"
+        value={isCustom ? customText : jewelleryOption ? jewelleryOption.value : ""}
+      />
+
+      {/* If user selected Custom, show a text input to type their own type */}
+      {isCustom && (
+        <input
+          name="jewelleryCustom"
+          className="border rounded-3xl bg-[#263b2e00] border-[#263b2e54] p-2 text-[#ffe277] shadow-xl/20 poppinsfont"
+          type="text"
+          placeholder="Type your custom jewellery type"
+          value={customText}
+          onChange={(e) => setCustomText(e.target.value)}
+        />
+      )}
+
+      <button
+        type="submit"
+        className="w-full border border-[#ffe277] rounded-3xl text-[#ffe277] p-2 mt-2 poppinsfont hover:bg-[#ffe277] hover:text-[#263b2e] transition-colors"
+      >
+        Submit
+      </button>
+
+      {message && (
+        <p className="text-center text-sm text-[#ffe277] mt-2">{message}</p>
+      )}
+    </form>
+  );
+
+  if (compact) {
+    return <div className={`w-full ${className}`}>{formElement}</div>;
+  }
+
   return (
     <div className="h-screen w-screen bg-[url(/bg-green.jpg)] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center gap-15">
       <div className="modernfont text-[#ffe277] text-3xl lg:text-6xl text-center">
@@ -112,80 +194,7 @@ export default function Form() {
         <h1>Consultation Now</h1>
       </div>
       <div className="flex flex-col justify-center items-center w-full">
-        <form action="" ref={formRef} onSubmit={handleSubmit} className="flex flex-col w-[80%] lg:w-[60%] gap-4 lg:gap-7 xl:gap-10">
-          <input
-            name="fullName"
-            className="border rounded-3xl bg-[#263b2e00] border-[#263b2e54] p-2 text-[#ffe277] shadow-xl/20 poppinsfont"
-            type="text"
-            placeholder="Full Name"
-          />
-          <input
-            name="whatsapp"
-            className="border rounded-3xl bg-[#263b2e00] border-[#263b2e54] p-2 text-[#ffe277] shadow-xl/20 poppinsfont"
-            type="tel"
-            placeholder="WhatsApp Number"
-          />
-          <input
-            name="city"
-            className="border rounded-3xl bg-[#263b2e00] border-[#263b2e54] p-2 text-[#ffe277] shadow-xl/20 poppinsfont"
-            type="text"
-            placeholder="City"
-          />
-
-          <Dropdown
-            name="jewelleryType"
-            includeHiddenInput={false} /* parent will control submitted value to support custom text */
-            placeholder="--Jewellry Type--"
-            value={jewelleryOption}
-            onChange={(opt) => {
-              setJewelleryOption(opt);
-              if (opt && opt.value === "custom") {
-                setIsCustom(true);
-                setCustomText("");
-              } else {
-                setIsCustom(false);
-                setCustomText("");
-              }
-            }}
-            options={[
-              { value: "ring", label: "Ring" },
-              { value: "pendant", label: "Pendant" },
-              { value: "earrings", label: "Earrings" },
-              { value: "bridal", label: "Bridal" },
-              { value: "custom", label: "Custom" },
-            ]}
-          />
-
-          {/* Hidden input used for form submission. If custom is selected we send the typed value, otherwise the option value */}
-          <input
-            type="hidden"
-            name="jewelleryType"
-            value={isCustom ? customText : jewelleryOption ? jewelleryOption.value : ""}
-          />
-
-          {/* If user selected Custom, show a text input to type their own type */}
-          {isCustom && (
-            <input
-              name="jewelleryCustom"
-              className="border rounded-3xl bg-[#263b2e00] border-[#263b2e54] p-2 text-[#ffe277] shadow-xl/20 poppinsfont"
-              type="text"
-              placeholder="Type your custom jewellery type"
-              value={customText}
-              onChange={(e) => setCustomText(e.target.value)}
-            />
-          )}
-
-          <button
-            type="submit"
-            className="w-full border border-[#ffe277] rounded-3xl text-[#ffe277] p-2 mt-2 poppinsfont hover:bg-[#ffe277] hover:text-[#263b2e] transition-colors"
-          >
-            Submit
-          </button>
-
-          {message && (
-            <p className="text-center text-sm text-[#ffe277] mt-2">{message}</p>
-          )}
-        </form>
+        {formElement}
       </div>
       <div className="w-full flex justify-center">
         <h1 className="border border-[#ffe277] rounded-xl text-[#ffe277] text-xs lg:text-lg xl:text-2xl text-center w-[70%] lg:w-[50%] xl:w-[30%] p-1">
