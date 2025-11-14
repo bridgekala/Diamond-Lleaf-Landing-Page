@@ -44,12 +44,12 @@ export default function OurCollections() {
       name: "Men's Collection",
       info: "Refind, Bold, Modern",
       images: {
-        main: "/images/1.1.jpg",
-        secondary: "/images/1.jpg",
+        main: "/images/7.jpg",
+        secondary: "/images/7.1.jpg",
       },
       images2: {
-        main: "/images/1.jpg",
-        secondary: "/images/1.1.jpg",
+        main: "/images/8.jpg",
+        secondary: "/images/8.1.jpg",
       },
     },
   ];
