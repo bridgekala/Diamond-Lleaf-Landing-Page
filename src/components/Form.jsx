@@ -236,7 +236,7 @@ const handleSubmit = async (e) => {
         <h1>Book Your Free</h1>
         <h1>Consultation Now</h1>
       </div>
-      <div className="flex flex-col justify-center items-center w-full">
+      <div className="flex flex-col justify-center items-center w-[80%] lg:w-full">
         {formElement}
       </div>
       <div className="w-full flex justify-center">
