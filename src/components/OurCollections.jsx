@@ -20,12 +20,12 @@ export default function OurCollections() {
       name: "Engagement Rings",
       info: "Find Your Perfect Ring",
       images: {
-        main: "/images/1.1.jpg",
-        secondary: "/images/1.jpg",
+        main: "/images/3.jpg",
+        secondary: "/images/3.1.jpg",
       },
       images2: {
-        main: "/images/1.jpg",
-        secondary: "/images/1.1.jpg",
+        main: "/images/4.jpg",
+        secondary: "/images/4.1.jpg",
       },
     },
     {

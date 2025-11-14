@@ -96,29 +96,7 @@ export default function Form({ compact = false, className = "" }) {
   const [message, setMessage] = useState("");
   const formRef = useRef(null);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const fd = new FormData(e.target);
-  //   const data = Object.fromEntries(fd.entries());
 
-  //   // Simple validation
-  //   if (!data.fullName || !data.whatsapp) {
-  //     setMessage("Please enter your name and WhatsApp number.");
-  //     return;
-  //   }
-
-  //   // You can replace this with a fetch() to send data to a server
-  //   console.log("Form submitted:", data);
-  //   setMessage("Thanks! We'll contact you within 24 hours.");
-
-  //   // Reset form and dropdown
-  //   e.target.reset();
-  //   setJewelleryOption(null);
-  //   setIsCustom(false);
-  //   setCustomText("");
-  //   // clear message after a short delay
-  //   setTimeout(() => setMessage(""), 6000);
-  // };
 const handleSubmit = async (e) => {
   e.preventDefault();
 
