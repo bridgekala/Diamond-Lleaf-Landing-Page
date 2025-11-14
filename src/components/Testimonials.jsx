@@ -44,27 +44,27 @@ export default function Testimonials() {
     },
   ];
   return (
-    <div className="w-screen bg-[url(/bg-yellow.jpg)] bg-center bg-no-repeat bg-cover p-4 flex flex-col gap-20 pb-20">
+    <div className="w-screen bg-[url(/bg-yellow.jpg)] bg-center bg-no-repeat bg-cover p-4 flex flex-col gap-20 lg:gap-40 pb-20 lg:py-20">
       {/* first */}
       <div className="flex flex-col gap-5">
         <div className="text-[#263b2e] text-center">
-          <h1 className="text-xl poppinsfont">Why Customers Choose</h1>
-          <h1 className="text-5xl modernfont">Diamond Lleaf</h1>
+          <h1 className="text-xl lg:text-3xl poppinsfont">Why Customers Choose</h1>
+          <h1 className="text-5xl lg:text-7xl modernfont">Diamond Lleaf</h1>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 xl:justify-items-center">
           {cards.map((card) => {
             return (
-              <div className="relative rounded-2xl p-5 bg-[rgba(10,40,34,0)] backdrop-blur-md border border-[rgba(255,255,255,0.04)] shadow-lg mt-">
+              <div className="relative rounded-2xl p-5 bg-[rgba(10,40,34,0)] backdrop-blur-md border border-[rgba(255,255,255,0.04)] shadow-lg xl:w-[90%]">
                 <div className="absolute -top-2 left-6 w-10 h-1 rounded-xl bg-[rgba(255,255,255,0.03)] blur-sm" />
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-20 flex items-center justify-center rounded-lg bg-[rgba(255,255,255,0.02)]">
-                    <img className="h-15" src={card.img1} alt="" />
-                    <img className="h-15" src={card.img2} alt="" />
+                  <div className="w-20 lg:w-50 flex items-center justify-center rounded-lg">
+                    <img className="h-15 lg:h-50" src={card.img1} alt="" />
+                    <img className="h-15 lg:h-50" src={card.img2} alt="" />
                   </div>
-                  <div className="text-[10px] text-[#263b2e] modernfont font-medium tracking-tight">
+                  <div className="text-[10px] lg:text-3xl text-[#263b2e] modernfont font-medium tracking-tight">
                     {card.tag}
                   </div>
-                  <div className="text-[8px] text-[#263b2e] font-medium tracking-tight">
+                  <div className="text-[8px] lg:text-base  text-[#263b2e] font-medium tracking-tight">
                     {card.para}
                   </div>
                 </div>
@@ -77,8 +77,8 @@ export default function Testimonials() {
        <div className="flex flex-col gap-5">
       {/* Heading */}
       <div className="text-[#263b2e] text-center">
-        <h1 className="text-xl poppinsfont">What Our</h1>
-        <h1 className="text-5xl modernfont">Customer Says</h1>
+        <h1 className="text-xl lg:text-3xl poppinsfont">What Our</h1>
+        <h1 className="text-5xl lg:text-7xl modernfont">Customer Says</h1>
       </div>
 
       {/* Slider */}
@@ -97,18 +97,18 @@ export default function Testimonials() {
       >
         {testi.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="relative rounded-2xl p-5 bg-[rgba(10,40,34,0)] backdrop-blur-md border border-[rgba(255,255,255,0.04)] shadow-lg">
+            <div className="relative rounded-2xl p-5 bg-[rgba(10,40,34,0)] backdrop-blur-md border border-[rgba(255,255,255,0.04)] shadow-lg xl:w-[90%]">
               <div className="absolute -top-2 left-6 w-10 h-1 rounded-xl bg-[rgba(255,255,255,0.03)] blur-sm" />
               <div className="flex flex-col items-center text-center gap-2">
                 <div className="flex justify-center items-center gap-2">
                   <div className="w-fit flex items-center justify-center rounded-lg bg-[rgba(255,255,255,0.02)]">
-                    <img className="h-6" src="/icons/user.png" />
+                    <img className="h-6 lg:h-10" src="/icons/user.png" />
                   </div>
-                  <div className="text-[10px] text-[#263b2e] modernfont font-semibold">
+                  <div className="text-[10px] lg:text-3xl text-[#263b2e] modernfont font-semibold">
                     {item.user}
                   </div>
                 </div>
-                <p className="text-[9px] text-[#263b2e] font-medium tracking-tight">
+                <p className="text-[9px] lg:text-2xl xl:text-3xl text-[#263b2e] font-medium tracking-tight">
                  " {item.says}"
                 </p>
               </div>

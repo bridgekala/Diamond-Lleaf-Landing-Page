@@ -11,7 +11,7 @@ export default function StripCarousel() {
   );
 
   return (
-    <div className="bg-[#ffe277] text-[#263b2e] h-[4vh] poppinsfont w-full z-50 overflow-hidden flex items-center">
+    <div className="bg-[#ffe277] text-[#263b2e] h-[4vh] lg:h-[6vh] lg:text-2xl poppinsfont w-full z-50 overflow-hidden flex items-center">
       <div className="strip-track">
         <div className="scroll-content">
           {message}

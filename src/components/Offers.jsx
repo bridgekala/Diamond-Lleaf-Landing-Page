@@ -16,12 +16,12 @@ export default function Offers() {
     },
   ];
   return (
-    <div className=" w-screen bg-[url(/bg-green.jpg)]  bg-no-repeat bg-cover bg-center p-10 flex flex-col items-center gap-4">
-      <div className="text-center">
-        <h1 className="modernfont text-[#ffe277] text-2xl">
+    <div className=" w-screen bg-[url(/bg-green.jpg)]  bg-no-repeat bg-cover bg-center p-10 lg:py-20 xl:py-30 flex flex-col items-center gap-4 lg:gap-15 xl:gap-20">
+      <div className="text-center lg:flex lg:flex-col lg:justify-center items-center">
+        <h1 className="modernfont text-[#ffe277] text-2xl lg:text-6xl xl:text-8xl">
           This Week's Exclusive Offer
         </h1>
-        <p className="poppinsfont text-[#b2963c] text-[9px]">
+        <p className="poppinsfont text-[#b2963c] text-[9px] lg:text-xl xl:text-3xl lg:w-[60%]">
           Book your free consultation and{" "}
           <span className="text-[#ffe277]">
             get a complimentory diamond upgrade or ₹5,000 off
@@ -29,16 +29,16 @@ export default function Offers() {
           your first purchase.
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-15">
         {cards.map((card) => {
           return (
             <div className="relative rounded-2xl p-5 bg-[rgba(10,40,34,0)] backdrop-blur-md border border-[rgba(255,255,255,0.04)] shadow-lg">
               <div className="absolute -top-2 left-6 w-10 h-1 rounded-xl bg-[rgba(255,255,255,0.03)] blur-sm" />
               <div className="flex flex-col items-center gap-4">
-                <div className="w-20 flex items-center justify-center rounded-lg bg-[rgba(255,255,255,0.02)]">
-                  <img className="h-10" src={card.img} alt="" />
+                <div className="w-20 lg:w-40 xl:w-50 flex items-center justify-center rounded-lg ">
+                  <img className="h-10 lg:h-30 xl:h-50" src={card.img} alt="" />
                 </div>
-                <div className="text-[16px] text-[#ffe277] font-medium tracking-tight">
+                <div className="text-[16px] lg:text-2xl xl:text-3xl text-[#ffe277] font-medium tracking-tight">
                   {card.tag}
                 </div>
               </div>
