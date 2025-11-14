@@ -1,6 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 
-function Dropdown({ name, placeholder, options, value, onChange, includeHiddenInput = true }) {
+function Dropdown({
+  name,
+  placeholder,
+  options,
+  value,
+  onChange,
+  includeHiddenInput = true,
+}) {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(value || null);
   const ref = useRef(null);
@@ -42,12 +49,20 @@ function Dropdown({ name, placeholder, options, value, onChange, includeHiddenIn
       >
         <span className="truncate">{active ? active.label : placeholder}</span>
         <svg
-          className={`w-4 h-4 ml-2 transition-transform ${open ? "transform rotate-180" : ""}`}
+          className={`w-4 h-4 ml-2 transition-transform ${
+            open ? "transform rotate-180" : ""
+          }`}
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M5 7l5 5 5-5" stroke="#ffe277" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M5 7l5 5 5-5"
+            stroke="#ffe277"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </button>
 
@@ -81,33 +96,79 @@ export default function Form({ compact = false, className = "" }) {
   const [message, setMessage] = useState("");
   const formRef = useRef(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const fd = new FormData(e.target);
-    const data = Object.fromEntries(fd.entries());
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const fd = new FormData(e.target);
+  //   const data = Object.fromEntries(fd.entries());
 
-    // Simple validation
-    if (!data.fullName || !data.whatsapp) {
-      setMessage("Please enter your name and WhatsApp number.");
-      return;
-    }
+  //   // Simple validation
+  //   if (!data.fullName || !data.whatsapp) {
+  //     setMessage("Please enter your name and WhatsApp number.");
+  //     return;
+  //   }
 
-    // You can replace this with a fetch() to send data to a server
-    console.log("Form submitted:", data);
+  //   // You can replace this with a fetch() to send data to a server
+  //   console.log("Form submitted:", data);
+  //   setMessage("Thanks! We'll contact you within 24 hours.");
+
+  //   // Reset form and dropdown
+  //   e.target.reset();
+  //   setJewelleryOption(null);
+  //   setIsCustom(false);
+  //   setCustomText("");
+  //   // clear message after a short delay
+  //   setTimeout(() => setMessage(""), 6000);
+  // };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const fd = new FormData(e.target);
+  const data = Object.fromEntries(fd.entries());
+
+  // validation
+  if (!data.fullName || !data.whatsapp) {
+    setMessage("Please enter your name and WhatsApp number.");
+    return;
+  }
+
+  try {
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbxmaWlCPXnrmtqKSnBFrE1St0FEJsheoFE07BsHph9oy_8S2gYY1noY5SFAXOK_zuV1EQ/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
     setMessage("Thanks! We'll contact you within 24 hours.");
+  } catch (error) {
+    console.error(error);
+    setMessage("Something went wrong, please try again.");
+  }
 
-  // Reset form and dropdown
+  // Reset form
   e.target.reset();
   setJewelleryOption(null);
   setIsCustom(false);
   setCustomText("");
-    // clear message after a short delay
-    setTimeout(() => setMessage(""), 6000);
-  };
+
+  setTimeout(() => setMessage(""), 6000);
+};
 
   // Render a compact inline form when used inside popup, otherwise full-screen layout
   const formElement = (
-    <form action="" ref={formRef} onSubmit={handleSubmit} className={`flex flex-col w-full ${compact ? "gap-3" : "w-[80%] lg:w-[60%] gap-4 lg:gap-7 xl:gap-10"}`}>
+    <form
+      action=""
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className={`flex flex-col w-full ${
+        compact ? "gap-3" : "w-[80%] lg:w-[60%] gap-4 lg:gap-7 xl:gap-10"
+      }`}
+    >
       <input
         name="fullName"
         className="border rounded-3xl bg-[#263b2e00] border-[#263b2e54] p-2 text-[#ffe277] shadow-xl/20 poppinsfont"
@@ -129,8 +190,10 @@ export default function Form({ compact = false, className = "" }) {
 
       <Dropdown
         name="jewelleryType"
-        includeHiddenInput={false} /* parent will control submitted value to support custom text */
-        placeholder="--Jewellry Type--"
+        includeHiddenInput={
+          false
+        } /* parent will control submitted value to support custom text */
+        placeholder="--Jewellery Type--"
         value={jewelleryOption}
         onChange={(opt) => {
           setJewelleryOption(opt);
@@ -155,7 +218,9 @@ export default function Form({ compact = false, className = "" }) {
       <input
         type="hidden"
         name="jewelleryType"
-        value={isCustom ? customText : jewelleryOption ? jewelleryOption.value : ""}
+        value={
+          isCustom ? customText : jewelleryOption ? jewelleryOption.value : ""
+        }
       />
 
       {/* If user selected Custom, show a text input to type their own type */}

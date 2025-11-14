@@ -52,9 +52,9 @@ export default function Testimonials() {
           <h1 className="text-5xl lg:text-7xl modernfont">Diamond Lleaf</h1>
         </div>
         <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 xl:justify-items-center">
-          {cards.map((card) => {
+          {cards.map((card,i) => {
             return (
-              <div className="relative rounded-2xl p-5 bg-[rgba(10,40,34,0)] backdrop-blur-md border border-[rgba(255,255,255,0.04)] shadow-lg xl:w-[90%]">
+              <div key={i} className="relative rounded-2xl p-5 bg-[rgba(10,40,34,0)] backdrop-blur-md border border-[rgba(255,255,255,0.04)] shadow-lg xl:w-[90%]">
                 <div className="absolute -top-2 left-6 w-10 h-1 rounded-xl bg-[rgba(255,255,255,0.03)] blur-sm" />
                 <div className="flex flex-col items-center text-center">
                   <div className="w-20 lg:w-50 flex items-center justify-center rounded-lg">

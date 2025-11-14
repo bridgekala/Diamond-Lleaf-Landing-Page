@@ -30,9 +30,9 @@ export default function Offers() {
         </p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-15">
-        {cards.map((card) => {
+        {cards.map((card,i) => {
           return (
-            <div className="relative rounded-2xl p-5 bg-[rgba(10,40,34,0)] backdrop-blur-md border border-[rgba(255,255,255,0.04)] shadow-lg">
+            <div key={i} className="relative rounded-2xl p-5 bg-[rgba(10,40,34,0)] backdrop-blur-md border border-[rgba(255,255,255,0.04)] shadow-lg">
               <div className="absolute -top-2 left-6 w-10 h-1 rounded-xl bg-[rgba(255,255,255,0.03)] blur-sm" />
               <div className="flex flex-col items-center gap-4">
                 <div className="w-20 lg:w-40 xl:w-50 flex items-center justify-center rounded-lg ">
