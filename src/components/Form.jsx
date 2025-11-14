@@ -231,7 +231,7 @@ const handleSubmit = async (e) => {
   }
 
   return (
-    <div className="h-screen w-screen bg-[url(/bg-green.jpg)] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center gap-15">
+    <div id="contact-form" className="h-screen w-screen bg-[url(/bg-green.jpg)] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center gap-15">
       <div className="modernfont text-[#ffe277] text-3xl lg:text-6xl text-center">
         <h1>Book Your Free</h1>
         <h1>Consultation Now</h1>
