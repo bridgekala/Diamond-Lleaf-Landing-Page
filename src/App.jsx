@@ -18,7 +18,7 @@ function App() {
       <Testimonials />
       <Form />
       <WhatsAppButton
-        phone={"919999999999"}
+        phone={"919311789732"}
         message={"Hi, I would like to chat about Diamond Lleaf."}
       />
     </>

@@ -8,12 +8,12 @@ export default function OurCollections() {
       name: "Bridal Jewelry",
       info: "Crafted for the Big Day",
       images: {
-        main: "/images/1.jpg",
-        secondary: "/images/1.1.jpg",
+        main: "/images/5.jpg",
+        secondary: "/images/5.1.jpg",
       },
       images2: {
-        main: "/images/2.jpg",
-        secondary: "/images/2.1.jpg",
+        main: "/images/6.jpg",
+        secondary: "/images/6.1.jpg",
       },
     },
     {
@@ -36,8 +36,8 @@ export default function OurCollections() {
         secondary: "/images/1.1.jpg",
       },
       images2: {
-        main: "/images/1.jpg",
-        secondary: "/images/1.1.jpg",
+        main: "/images/2.jpg",
+        secondary: "/images/2.1.jpg",
       },
     },
     {
